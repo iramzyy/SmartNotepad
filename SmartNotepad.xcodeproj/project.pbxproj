@@ -19,6 +19,7 @@
 		2CD5EEE72676E1710082416B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD5EEE62676E1710082416B /* Router.swift */; };
 		2CD5EEEA2676E3880082416B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD5EEE92676E3880082416B /* UIView.swift */; };
 		2CD5EEEC2676E6C90082416B /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD5EEEB2676E6C90082416B /* Storyboards.swift */; };
+		CCDE643F536D9FB45C786D58 /* Pods_SmartNotepad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 962DA78E3F804415020241FE /* Pods_SmartNotepad.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,9 @@
 		2CD5EEE62676E1710082416B /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		2CD5EEE92676E3880082416B /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		2CD5EEEB2676E6C90082416B /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
+		962DA78E3F804415020241FE /* Pods_SmartNotepad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartNotepad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D008C30CC75B8F77AACA8941 /* Pods-SmartNotepad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartNotepad.debug.xcconfig"; path = "Target Support Files/Pods-SmartNotepad/Pods-SmartNotepad.debug.xcconfig"; sourceTree = "<group>"; };
+		ED12652D2349BB5D6A061555 /* Pods-SmartNotepad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartNotepad.release.xcconfig"; path = "Target Support Files/Pods-SmartNotepad/Pods-SmartNotepad.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCDE643F536D9FB45C786D58 /* Pods_SmartNotepad.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +70,8 @@
 			children = (
 				2CD5EECA2676C3A50082416B /* SmartNotepad */,
 				2CD5EEC92676C3A50082416B /* Products */,
+				D84D6B66A3DC17C6A8826467 /* Pods */,
+				37A3174A73822FBD6D4C2921 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -157,6 +164,24 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		37A3174A73822FBD6D4C2921 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				962DA78E3F804415020241FE /* Pods_SmartNotepad.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D84D6B66A3DC17C6A8826467 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D008C30CC75B8F77AACA8941 /* Pods-SmartNotepad.debug.xcconfig */,
+				ED12652D2349BB5D6A061555 /* Pods-SmartNotepad.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,9 +189,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2CD5EEDC2676C3A70082416B /* Build configuration list for PBXNativeTarget "SmartNotepad" */;
 			buildPhases = (
+				F041F4F96B2EEF3C54CCD8F0 /* [CP] Check Pods Manifest.lock */,
 				2CD5EEC42676C3A50082416B /* Sources */,
 				2CD5EEC52676C3A50082416B /* Frameworks */,
 				2CD5EEC62676C3A50082416B /* Resources */,
+				7FC59697E93CDD2D19312DC1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -222,6 +249,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7FC59697E93CDD2D19312DC1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SmartNotepad/Pods-SmartNotepad-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SmartNotepad/Pods-SmartNotepad-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SmartNotepad/Pods-SmartNotepad-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F041F4F96B2EEF3C54CCD8F0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SmartNotepad-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2CD5EEC42676C3A50082416B /* Sources */ = {
@@ -371,6 +440,7 @@
 		};
 		2CD5EEDD2676C3A70082416B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D008C30CC75B8F77AACA8941 /* Pods-SmartNotepad.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -391,6 +461,7 @@
 		};
 		2CD5EEDE2676C3A70082416B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED12652D2349BB5D6A061555 /* Pods-SmartNotepad.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
