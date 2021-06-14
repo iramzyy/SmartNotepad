@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,8 @@
 		2C8075ED2677AB1B00363ECA /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8075EB2677AB1B00363ECA /* NoteCell.swift */; };
 		2C8075EE2677AB1B00363ECA /* NoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C8075EC2677AB1B00363ECA /* NoteCell.xib */; };
 		2C8075F02677B53A00363ECA /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8075EF2677B53A00363ECA /* UITableView.swift */; };
+		2C8075F32677CA7200363ECA /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8075F22677CA7200363ECA /* RealmManager.swift */; };
+		2C8075F52677CAF000363ECA /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8075F42677CAF000363ECA /* Note.swift */; };
 		2CD5EECC2676C3A50082416B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD5EECB2676C3A50082416B /* AppDelegate.swift */; };
 		2CD5EECE2676C3A50082416B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD5EECD2676C3A50082416B /* SceneDelegate.swift */; };
 		2CD5EED52676C3A70082416B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CD5EED42676C3A70082416B /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 		2C8075EB2677AB1B00363ECA /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		2C8075EC2677AB1B00363ECA /* NoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteCell.xib; sourceTree = "<group>"; };
 		2C8075EF2677B53A00363ECA /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		2C8075F22677CA7200363ECA /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		2C8075F42677CAF000363ECA /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		2CD5EEC82676C3A50082416B /* SmartNotepad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartNotepad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CD5EECB2676C3A50082416B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CD5EECD2676C3A50082416B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,8 +65,17 @@
 				2C8075E92677AAF200363ECA /* NotesListVC.swift */,
 				2C8075EB2677AB1B00363ECA /* NoteCell.swift */,
 				2C8075EC2677AB1B00363ECA /* NoteCell.xib */,
+				2C8075F42677CAF000363ECA /* Note.swift */,
 			);
 			path = NotesList;
+			sourceTree = "<group>";
+		};
+		2C8075F12677CA5B00363ECA /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				2C8075F22677CA7200363ECA /* RealmManager.swift */,
+			);
+			path = Cache;
 			sourceTree = "<group>";
 		};
 		2CD5EEBF2676C3A50082416B = {
@@ -141,6 +154,7 @@
 		2CD5EEE42676E0790082416B /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				2C8075F12677CA5B00363ECA /* Cache */,
 				2CD5EEE52676E08B0082416B /* Router */,
 			);
 			path = Externals;
@@ -178,7 +192,6 @@
 				D008C30CC75B8F77AACA8941 /* Pods-SmartNotepad.debug.xcconfig */,
 				ED12652D2349BB5D6A061555 /* Pods-SmartNotepad.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -302,6 +315,8 @@
 				2CD5EECC2676C3A50082416B /* AppDelegate.swift in Sources */,
 				2CD5EEE72676E1710082416B /* Router.swift in Sources */,
 				2C8075EA2677AAF200363ECA /* NotesListVC.swift in Sources */,
+				2C8075F52677CAF000363ECA /* Note.swift in Sources */,
+				2C8075F32677CA7200363ECA /* RealmManager.swift in Sources */,
 				2C8075F02677B53A00363ECA /* UITableView.swift in Sources */,
 				2C8075ED2677AB1B00363ECA /* NoteCell.swift in Sources */,
 				2CD5EECE2676C3A50082416B /* SceneDelegate.swift in Sources */,
