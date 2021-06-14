@@ -11,6 +11,7 @@
 		2C8075EA2677AAF200363ECA /* NotesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8075E92677AAF200363ECA /* NotesListVC.swift */; };
 		2C8075ED2677AB1B00363ECA /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8075EB2677AB1B00363ECA /* NoteCell.swift */; };
 		2C8075EE2677AB1B00363ECA /* NoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C8075EC2677AB1B00363ECA /* NoteCell.xib */; };
+		2C8075F02677B53A00363ECA /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8075EF2677B53A00363ECA /* UITableView.swift */; };
 		2CD5EECC2676C3A50082416B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD5EECB2676C3A50082416B /* AppDelegate.swift */; };
 		2CD5EECE2676C3A50082416B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD5EECD2676C3A50082416B /* SceneDelegate.swift */; };
 		2CD5EED52676C3A70082416B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CD5EED42676C3A70082416B /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 		2C8075E92677AAF200363ECA /* NotesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListVC.swift; sourceTree = "<group>"; };
 		2C8075EB2677AB1B00363ECA /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		2C8075EC2677AB1B00363ECA /* NoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteCell.xib; sourceTree = "<group>"; };
+		2C8075EF2677B53A00363ECA /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		2CD5EEC82676C3A50082416B /* SmartNotepad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartNotepad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CD5EECB2676C3A50082416B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CD5EECD2676C3A50082416B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				2CD5EEE92676E3880082416B /* UIView.swift */,
+				2C8075EF2677B53A00363ECA /* UITableView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				2CD5EECC2676C3A50082416B /* AppDelegate.swift in Sources */,
 				2CD5EEE72676E1710082416B /* Router.swift in Sources */,
 				2C8075EA2677AAF200363ECA /* NotesListVC.swift in Sources */,
+				2C8075F02677B53A00363ECA /* UITableView.swift in Sources */,
 				2C8075ED2677AB1B00363ECA /* NoteCell.swift in Sources */,
 				2CD5EECE2676C3A50082416B /* SceneDelegate.swift in Sources */,
 			);
