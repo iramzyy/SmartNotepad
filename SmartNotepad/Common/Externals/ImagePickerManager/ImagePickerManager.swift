@@ -17,39 +17,42 @@ open class ImagePicker: NSObject {
     private let pickerController: UIImagePickerController
     private weak var presentationController: UIViewController?
     private weak var delegate: ImagePickerDelegate?
+    private var hasPermission = false
 
     public init(presentationController: UIViewController, delegate: ImagePickerDelegate) {
         self.pickerController = UIImagePickerController()
 
         super.init()
 
+        requestAuthorization()
+        
         self.presentationController = presentationController
         self.delegate = delegate
-
         self.pickerController.delegate = self
         self.pickerController.allowsEditing = true
         self.pickerController.mediaTypes = ["public.image"]
     }
     
+    private func requestAuthorization() {
+        PHPhotoLibrary.requestAuthorization { status in
+             switch status {
+             case .authorized:
+                self.hasPermission = true
+
+            default:
+                self.hasPermission = false
+             }
+         }
+    }
+    
     public func hasPhotoLibraryPermission()  -> Bool {
-        var hasPermission = false
+
         let status = PHPhotoLibrary.authorizationStatus()
         switch status {
         case .authorized:
             hasPermission = true
         case .notDetermined:
-            PHPhotoLibrary.requestAuthorization { status in
-                 switch status {
-                 case .authorized:
-                    hasPermission = true
-                 case .denied, .restricted, .limited :
-                    hasPermission = false
-                 case .notDetermined:
-                    hasPermission = false
-                 @unknown default:
-                    hasPermission = false
-                 }
-             }
+            break
        default:
             hasPermission = false
         }
