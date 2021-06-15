@@ -16,7 +16,7 @@ class RealmManager: NSObject {
     
     func retrieveAllDataForObject(_ T : Object.Type) -> [Object] {
         var objects = [Object]()
-        for result in realmObject.objects(T) {
+        for result in realmObject.objects(T).sorted(byKeyPath: "noteDate", ascending: false) {
             objects.append(result)
         }
         return objects

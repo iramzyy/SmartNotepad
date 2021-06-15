@@ -14,7 +14,7 @@ class NotesPresenterImplementation: NotesPresenterProtocols {
     private let locationManager: LocationManager
     private let router: RouterProtocol
     private var notes = [Note]()
-
+    
     var notesCount: Int {
         return  notes.count
     }
@@ -33,21 +33,19 @@ class NotesPresenterImplementation: NotesPresenterProtocols {
     func getNotes() {
         notes.removeAll()
         let realmNotes =  realmManager.retrieveAllDataForObject(Note.self).map{ $0 as! Note }
-
+        
         if realmNotes.count == 0 {
             view?.handleEmptyNotesView()
         } else {
             if let nearestNote = getNearestNote(notes: realmNotes) {
                 notes.append(nearestNote)
-                notes.append(contentsOf: realmNotes.filter({ $0.noteID != nearestNote.noteID}).sorted {
-                    $0.noteDate > $1.noteDate
-                })
+                notes.append(contentsOf: realmNotes.filter({ $0.noteID != nearestNote.noteID}))
             } else {
-                notes = realmNotes.sorted {
-                    $0.noteDate > $1.noteDate
-                }
+                notes = realmNotes
             }
-            view?.refreshListView()
+            DispatchQueue.main.async {
+                self.view?.refreshListView()
+            }
         }
     }
     
@@ -60,8 +58,8 @@ class NotesPresenterImplementation: NotesPresenterProtocols {
                    let noteLongitude = note.noteLongitude.value {
                     let distance = locationManager.getDistanceInMeters(currentLatitude: currentLocation.latitude, currentLongitude: currentLocation.longitude, locationLatitude: noteLatitude, locationLongitude: noteLongitude)
                     if smallestDistance == nil || distance < smallestDistance! {
-                      nearestNote = note
-                      smallestDistance = distance
+                        nearestNote = note
+                        smallestDistance = distance
                     }
                 }
             }
@@ -84,7 +82,9 @@ class NotesPresenterImplementation: NotesPresenterProtocols {
         let note = notes[row]
         let noteDetailsVC = Storyboard.NoteDetails.viewController(NoteDetailsVC.self)
         noteDetailsVC.note = note
-        router.push(view: noteDetailsVC)
+        DispatchQueue.main.async {
+            self.router.push(view: noteDetailsVC)
+        }
     }
     
     func refreshButtonPressed() {
@@ -94,6 +94,8 @@ class NotesPresenterImplementation: NotesPresenterProtocols {
     
     func addButtonPressed() {
         let noteDetailsVC = Storyboard.NoteDetails.viewController(NoteDetailsVC.self)
-        router.push(view: noteDetailsVC)
+        DispatchQueue.main.async {
+            self.router.push(view: noteDetailsVC)
+        }
     }
 }

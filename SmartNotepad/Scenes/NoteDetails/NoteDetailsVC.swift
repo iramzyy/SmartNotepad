@@ -9,7 +9,6 @@ import UIKit
 
 class NoteDetailsVC: UIViewController {
     @IBOutlet weak var deleteBarButton: UIBarButtonItem!
-    
     @IBOutlet weak var notesTitleTextField: UITextField!
     @IBOutlet weak var notesBodyTextView: UITextView!
     @IBOutlet weak var addLocationButton: UIButton!
@@ -20,7 +19,6 @@ class NoteDetailsVC: UIViewController {
     var presenter: NoteDetailsPresenterProtocols!
     var note: Note?
 
-    
     private lazy var router: RouterProtocol = {
         let router = Router()
         router.presentedView = self

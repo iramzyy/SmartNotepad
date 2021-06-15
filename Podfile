@@ -8,4 +8,5 @@ target 'SmartNotepad' do
   # Pods for SmartNotepad
   pod 'RealmSwift'
   pod 'UITextView+Placeholder'
+  pod 'IQKeyboardManager'
 end

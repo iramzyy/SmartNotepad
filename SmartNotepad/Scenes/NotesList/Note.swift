@@ -10,8 +10,8 @@ import RealmSwift
 
 class Note: Object {
     @objc dynamic var noteID = UUID().uuidString
-    @objc dynamic var noteTitle: String = "Note title"
-    @objc dynamic var noteBody: String = "Note body"
+    @objc dynamic var noteTitle: String = ""
+    @objc dynamic var noteBody: String = ""
     @objc dynamic var noteImageData: Data?  = nil
     @objc dynamic var noteDate = Date()
     dynamic var noteLatitude = RealmOptional<Double>()
