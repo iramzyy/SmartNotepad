@@ -9,6 +9,7 @@ import Foundation
 import CoreLocation
 
 class NoteDetailsPresenterImplementation: NoteDetailsPresenterProtocols {
+    // MARK:- Variables
     private weak var view: NoteDetailsViewProtocols?
     private let realmManager: RealmManager = RealmManager()
     private let router: RouterProtocol
@@ -19,7 +20,7 @@ class NoteDetailsPresenterImplementation: NoteDetailsPresenterProtocols {
     private var selectedLatitude: Double?
     private var selectedLongitude: Double?
     
-    
+    // MARK:- Init
     init(view: NoteDetailsViewProtocols, router: RouterProtocol,locationManager: LocationManager,imagePikerManager: ImagePicker ,note: Note?) {
         self.view = view
         self.router = router
@@ -28,7 +29,7 @@ class NoteDetailsPresenterImplementation: NoteDetailsPresenterProtocols {
         self.note = note
     }
     
-    
+    // MARK:- Functions
     func viewDidLoad() {
         locationManager.updateCurrentLocation()
         if note != nil {

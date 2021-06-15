@@ -9,22 +9,24 @@ import Foundation
 
 
 class NotesPresenterImplementation: NotesPresenterProtocols {
+    // MARK:- Variables
     private weak var view: NotesListViewProtocols?
     private let realmManager: RealmManager = RealmManager()
     private let locationManager: LocationManager
     private let router: RouterProtocol
     private var notes = [Note]()
-    
     var notesCount: Int {
         return  notes.count
     }
     
+    // MARK:- Init
     init(view: NotesListViewProtocols, router: RouterProtocol,locationManager: LocationManager) {
         self.view = view
         self.router = router
         self.locationManager = locationManager
     }
     
+    // MARK:- Functions
     func viewWillAppear() {
         locationManager.updateCurrentLocation()
         getNotes()

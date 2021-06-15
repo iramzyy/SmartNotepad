@@ -7,19 +7,17 @@
 
 import UIKit
 
-class NoteCell: UITableViewCell, NoteCellProtocols {
-    
+class NoteCell: UITableViewCell {
+    // MARK:- IBOutlets
     @IBOutlet weak var noteTitleLabel: UILabel!
     @IBOutlet weak var noteBodyLabel: UILabel!
     @IBOutlet weak var nearestLabel: UILabel!
     @IBOutlet weak var locationIcon: UIImageView!
     @IBOutlet weak var imageIcon: UIImageView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+}
 
-    }
-
+extension NoteCell : NoteCellProtocols {
     func display(title: String) {
         noteTitleLabel.text = title
     }
@@ -39,7 +37,6 @@ class NoteCell: UITableViewCell, NoteCellProtocols {
     func display(isNearestLabel : Bool) {
         isNearestLabel == true ? (nearestLabel.isHidden = false) : (nearestLabel.isHidden = true)
     }
-    
     
     func displayLocation(latitude: Double?, longitude: Double?) {
         if latitude == nil && longitude == nil {

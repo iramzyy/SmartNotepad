@@ -8,11 +8,12 @@
 import UIKit
 
 class NotesListVC: UIViewController {
-    
+    // MARK:- IBOutlets
     @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var notesTableView: UITableView!
     @IBOutlet weak var addFloatingButton: UIButton!
     
+    // MARK:- Variables
     var presenter: NotesPresenterProtocols!
     
     lazy var router: RouterProtocol = {
@@ -25,6 +26,7 @@ class NotesListVC: UIViewController {
         return LocationManager.shared
     }()
     
+    // MARK:- Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,12 +40,11 @@ class NotesListVC: UIViewController {
         presenter.viewWillAppear()
     }
     
+    // MARK:- Functions
     private func setupUI() {
         setupFloatingButton()
         setupTableView()
     }
-    
-
     
     private func setupFloatingButton() {
         addFloatingButton.cornerRadius = addFloatingButton.frame.width / 2
@@ -55,6 +56,7 @@ class NotesListVC: UIViewController {
         notesTableView.delegate = self
     }
     
+    // MARK:- IBActions
     @IBAction func refreshPressed(_ sender: UIBarButtonItem) {
         presenter.refreshButtonPressed()
     }

@@ -8,6 +8,7 @@
 import UIKit
 
 class NoteDetailsVC: UIViewController {
+    // MARK:- IBOutlet
     @IBOutlet weak var deleteBarButton: UIBarButtonItem!
     @IBOutlet weak var notesTitleTextField: UITextField!
     @IBOutlet weak var notesBodyTextView: UITextView!
@@ -16,6 +17,7 @@ class NoteDetailsVC: UIViewController {
     @IBOutlet weak var addPhotoButton: UIButton!
     @IBOutlet weak var photoView: UIImageView!
     
+    // MARK:- Variables
     var presenter: NoteDetailsPresenterProtocols!
     var note: Note?
 
@@ -35,8 +37,7 @@ class NoteDetailsVC: UIViewController {
     }()
     
     
-
-    
+    // MARK:- Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setGestureRecognizers()
@@ -48,6 +49,7 @@ class NoteDetailsVC: UIViewController {
         presenter.viewDidLoad()
     }
     
+    // MARK:- Functions
     func setGestureRecognizers() {
         let locationTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleLocationTapped(_:)))
         locationLabel.addGestureRecognizer(locationTapGesture)
@@ -64,10 +66,10 @@ class NoteDetailsVC: UIViewController {
         presenter.addImagePressed()
     }
     
+    // MARK:- IBActions
     @IBAction func addLocationPressed(_ sender: UIButton) {
         presenter.addLocationPressed()
     }
-    
     
     @IBAction func addPhotoPressed(_ sender: UIButton) {
         presenter.addImagePressed()
