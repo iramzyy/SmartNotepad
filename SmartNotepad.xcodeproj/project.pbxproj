@@ -11,6 +11,7 @@
 		2C7855E3267829C0004E04DB /* NoteDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C7855E2267829C0004E04DB /* NoteDetails.storyboard */; };
 		2C7855E5267833FD004E04DB /* NoteDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7855E4267833FD004E04DB /* NoteDetailsVC.swift */; };
 		2C7855E7267837B5004E04DB /* NoteDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7855E6267837B5004E04DB /* NoteDetailsPresenter.swift */; };
+		2C7855EA26784A84004E04DB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7855E926784A84004E04DB /* LocationManager.swift */; };
 		2C8075E82677AADD00363ECA /* NotesList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C8075E72677AADD00363ECA /* NotesList.storyboard */; };
 		2C8075EA2677AAF200363ECA /* NotesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8075E92677AAF200363ECA /* NotesListVC.swift */; };
 		2C8075ED2677AB1B00363ECA /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8075EB2677AB1B00363ECA /* NoteCell.swift */; };
@@ -33,6 +34,7 @@
 		2C7855E2267829C0004E04DB /* NoteDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NoteDetails.storyboard; sourceTree = "<group>"; };
 		2C7855E4267833FD004E04DB /* NoteDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailsVC.swift; sourceTree = "<group>"; };
 		2C7855E6267837B5004E04DB /* NoteDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailsPresenter.swift; sourceTree = "<group>"; };
+		2C7855E926784A84004E04DB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		2C8075E72677AADD00363ECA /* NotesList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotesList.storyboard; sourceTree = "<group>"; };
 		2C8075E92677AAF200363ECA /* NotesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListVC.swift; sourceTree = "<group>"; };
 		2C8075EB2677AB1B00363ECA /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
@@ -74,6 +76,14 @@
 				2C7855E6267837B5004E04DB /* NoteDetailsPresenter.swift */,
 			);
 			path = NoteDetails;
+			sourceTree = "<group>";
+		};
+		2C7855E826784A6E004E04DB /* LocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				2C7855E926784A84004E04DB /* LocationManager.swift */,
+			);
+			path = LocationManager;
 			sourceTree = "<group>";
 		};
 		2C8075E62677AAAE00363ECA /* NotesList */ = {
@@ -176,6 +186,7 @@
 			children = (
 				2C8075F12677CA5B00363ECA /* Cache */,
 				2CD5EEE52676E08B0082416B /* Router */,
+				2C7855E826784A6E004E04DB /* LocationManager */,
 			);
 			path = Externals;
 			sourceTree = "<group>";
@@ -341,6 +352,7 @@
 				2C8075F02677B53A00363ECA /* UITableView.swift in Sources */,
 				2C8075ED2677AB1B00363ECA /* NoteCell.swift in Sources */,
 				2CD5EECE2676C3A50082416B /* SceneDelegate.swift in Sources */,
+				2C7855EA26784A84004E04DB /* LocationManager.swift in Sources */,
 				2C7855DF26780A3F004E04DB /* NotesListPresenter.swift in Sources */,
 				2C7855E7267837B5004E04DB /* NoteDetailsPresenter.swift in Sources */,
 				2C7855E5267833FD004E04DB /* NoteDetailsVC.swift in Sources */,

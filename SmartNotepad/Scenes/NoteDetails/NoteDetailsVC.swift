@@ -18,6 +18,8 @@ class NoteDetailsVC: UIViewController {
     
     var presenter: NoteDetailsPresenterProtocols!
     var note: Note?
+    var selectedLatitude: Double?
+    var selectedLongitude: Double?
     
     private lazy var router: RouterProtocol = {
         let router = Router()
@@ -25,10 +27,15 @@ class NoteDetailsVC: UIViewController {
         return router
     }()
     
+    private lazy var locationManger: LocationManager = {
+        return LocationManager.shared
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        presenter = NoteDetailsPresenterImplementation(view: self, router: self.router, note: note)
+        presenter = NoteDetailsPresenterImplementation(view: self, router: self.router, locationManager: locationManger, note: note)
         presenter.viewDidLoad()
     }
     
@@ -36,6 +43,7 @@ class NoteDetailsVC: UIViewController {
     
     
     @IBAction func addLocationPressed(_ sender: UIButton) {
+        presenter.addLocationPressed()
     }
     
     
@@ -52,7 +60,7 @@ extension NoteDetailsVC: NoteDetailsViewProtocols {
         addPhotoButton.isHidden = false
         photoView.isHidden = true
     }
-
+    
     func display(title: String) {
         notesTitleTextField.text = title
     }
@@ -72,18 +80,28 @@ extension NoteDetailsVC: NoteDetailsViewProtocols {
         }
     }
     
+    func display(locationAddress: String) {
+        locationLabel.text = locationAddress
+    }
+    
     func displayLocation(latitude: Double?, longitude: Double?) {
         if let noteLatitude = latitude , let noteLongitude = longitude {
             locationLabel.isHidden = false
             addLocationButton.isHidden = true
-            locationLabel.text = presenter.getCoordinatesAddress(latitude: noteLatitude, longitue: noteLongitude)
+            selectedLatitude = latitude
+            selectedLongitude = longitude
+            presenter.getCoordinatesAddress(latitude: noteLatitude, longitue: noteLongitude)
         } else {
             locationLabel.isHidden = true
             addLocationButton.isHidden = false
         }
     }
     
-    func displayPermissionAlert(title: String, message: String) {
-        
+    func openSettings() {
+        if let url = URL(string: UIApplication.openSettingsURLString) {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
     }
 }
