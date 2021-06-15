@@ -21,8 +21,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         if CLLocationManager.authorizationStatus() == .notDetermined {
             self.locationManager.requestWhenInUseAuthorization()
         }
-        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
     func updateCurrentLocation(){
@@ -61,8 +60,14 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
                     handler(addressString)
                 }
             }
-            
         }
+    }
+    
+    func getDistanceInMeters (currentLatitude: Double, currentLongitude: Double, locationLatitude: Double, locationLongitude: Double) -> Double{
+        let currentLocation = CLLocation(latitude: currentLatitude, longitude: currentLongitude)
+        let location = CLLocation(latitude: locationLatitude, longitude: locationLongitude)
+        
+        return currentLocation.distance(from: location)
     }
 
     
@@ -80,7 +85,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         } else {
             hasPermission = false
         }
-        
         return hasPermission
     }
     

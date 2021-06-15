@@ -29,11 +29,23 @@ class NoteCell: UITableViewCell, NoteCellProtocols {
     }
     
     func display(image: Data?) {
-        if image == nil { imageIcon.isHidden = true}
+        if image == nil {
+            imageIcon.isHidden = true
+        } else {
+            imageIcon.isHidden = false
+        }
     }
+    
+    func display(isNearestLabel : Bool) {
+        isNearestLabel == true ? (nearestLabel.isHidden = false) : (nearestLabel.isHidden = true)
+    }
+    
     
     func displayLocation(latitude: Double?, longitude: Double?) {
-        if latitude == nil && longitude == nil {locationIcon.isHidden = true}
+        if latitude == nil && longitude == nil {
+            locationIcon.isHidden = true
+        } else {
+            locationIcon.isHidden = false
+        }
     }
-    
 }

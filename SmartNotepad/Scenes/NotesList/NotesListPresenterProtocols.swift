@@ -16,6 +16,7 @@ protocol NoteCellProtocols: AnyObject {
     func display(title : String)
     func display(body: String)
     func display(image: Data?)
+    func display(isNearestLabel: Bool)
     func displayLocation(latitude: Double?, longitude: Double?)
 }
 
@@ -24,5 +25,6 @@ protocol NotesPresenterProtocols {
     func viewWillAppear()
     func configure(cell: NoteCell, forRow row: Int)
     func didSelect(row: Int)
+    func refreshButtonPressed()
     func addButtonPressed()
 }

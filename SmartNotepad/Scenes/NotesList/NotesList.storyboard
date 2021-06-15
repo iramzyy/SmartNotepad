@@ -82,6 +82,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="Smart Note" id="3Us-1U-NJO">
                         <barButtonItem key="backBarButtonItem" title=" " id="K0b-K2-LgQ"/>
+                        <barButtonItem key="rightBarButtonItem" image="refresh-icon" id="b6x-vY-i4h">
+                            <color key="tintColor" name="Main-Blue-Color"/>
+                            <connections>
+                                <action selector="refreshPressed:" destination="Y6W-OH-hqX" id="dve-uE-QP7"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addFloatingButton" destination="VSs-Aj-ovO" id="n2t-JP-bRg"/>
@@ -117,6 +123,7 @@
     </scenes>
     <resources>
         <image name="arrow-image" width="512" height="512"/>
+        <image name="refresh-icon" width="32" height="32"/>
         <namedColor name="Main-Blue-Color">
             <color red="0.0" green="0.25098039215686274" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
