@@ -34,14 +34,34 @@ class NoteDetailsVC: UIViewController {
         return imagePicker
     }()
     
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setGestureRecognizers()
         presenter = NoteDetailsPresenterImplementation(view: self,
                                                        router: self.router,
                                                        locationManager: locationManger,
                                                        imagePikerManager: imagePikerManager,
                                                        note: note)
         presenter.viewDidLoad()
+    }
+    
+    func setGestureRecognizers() {
+        let locationTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleLocationTapped(_:)))
+        locationLabel.addGestureRecognizer(locationTapGesture)
+        
+        let imageTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleImageTapped(_:)))
+        photoView.addGestureRecognizer(imageTapGesture)
+    }
+    
+    @objc func handleLocationTapped(_ sender: UITapGestureRecognizer? = nil) {
+        presenter.addLocationPressed()
+    }
+    
+    @objc func handleImageTapped(_ sender: UITapGestureRecognizer? = nil) {
+        presenter.addImagePressed()
     }
     
     @IBAction func addLocationPressed(_ sender: UIButton) {
@@ -62,3 +82,4 @@ class NoteDetailsVC: UIViewController {
                                  body: notesBodyTextView.text)
     }
 }
+

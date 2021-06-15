@@ -114,7 +114,6 @@
 				2C8075EC2677AB1B00363ECA /* NoteCell.xib */,
 				2C7855DE26780A3F004E04DB /* NotesListPresenter.swift */,
 				2C89AFE02679135100C90307 /* NotesListPresenterProtocols.swift */,
-				2C8075F42677CAF000363ECA /* Note.swift */,
 			);
 			path = NotesList;
 			sourceTree = "<group>";
@@ -123,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				2C8075F22677CA7200363ECA /* RealmManager.swift */,
+				2C8075F42677CAF000363ECA /* Note.swift */,
 			);
 			path = Cache;
 			sourceTree = "<group>";

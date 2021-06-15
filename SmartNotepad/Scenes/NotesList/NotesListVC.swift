@@ -15,7 +15,7 @@ class NotesListVC: UIViewController {
     
     var presenter: NotesPresenterProtocols!
     
-    private lazy var router: RouterProtocol = {
+    lazy var router: RouterProtocol = {
         let router = Router()
         router.presentedView = self
         return router

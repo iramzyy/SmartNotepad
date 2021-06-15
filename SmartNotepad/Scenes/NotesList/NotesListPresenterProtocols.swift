@@ -8,6 +8,8 @@
 import Foundation
 
 protocol NotesListViewProtocols: AnyObject {
+    func startLoading()
+    func finishLoading()
     func refreshListView()
     func handleEmptyNotesView()
 }

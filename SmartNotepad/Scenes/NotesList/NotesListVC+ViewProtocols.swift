@@ -6,6 +6,14 @@
 //
 
 extension NotesListVC: NotesListViewProtocols {
+    func startLoading() {
+        router.startActivityIndicator()
+    }
+    
+    func finishLoading() {
+        router.stopActivityIndicator()
+    }
+    
     func refreshListView() {
         emptyView.isHidden = true
         notesTableView.isHidden = false

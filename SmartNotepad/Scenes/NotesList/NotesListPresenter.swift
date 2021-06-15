@@ -32,9 +32,11 @@ class NotesPresenterImplementation: NotesPresenterProtocols {
     
     func getNotes() {
         notes.removeAll()
+        view?.startLoading()
         let realmNotes =  realmManager.retrieveAllDataForObject(Note.self).map{ $0 as! Note }
         
         if realmNotes.count == 0 {
+            view?.finishLoading()
             view?.handleEmptyNotesView()
         } else {
             if let nearestNote = getNearestNote(notes: realmNotes) {
@@ -44,6 +46,7 @@ class NotesPresenterImplementation: NotesPresenterProtocols {
                 notes = realmNotes
             }
             DispatchQueue.main.async {
+                self.view?.finishLoading()
                 self.view?.refreshListView()
             }
         }
