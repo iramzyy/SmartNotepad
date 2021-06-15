@@ -59,4 +59,10 @@ class RealmManager: NSObject {
             realmObject.delete(objects)
         }
     }
+    
+    func delete(_ object: Object) {
+        try! realmObject.write{
+            realmObject.delete(object)
+        }
+    }
 }

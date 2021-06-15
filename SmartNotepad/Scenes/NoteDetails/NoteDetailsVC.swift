@@ -7,7 +7,9 @@
 
 import UIKit
 
+
 class NoteDetailsVC: UIViewController {
+    @IBOutlet weak var deleteBarButton: UIBarButtonItem!
     
     @IBOutlet weak var notesTitleTextField: UITextField!
     @IBOutlet weak var notesBodyTextView: UITextView!
@@ -17,9 +19,9 @@ class NoteDetailsVC: UIViewController {
     @IBOutlet weak var photoView: UIImageView!
     
     var presenter: NoteDetailsPresenterProtocols!
+    var imagePickerController:UIImagePickerController?
     var note: Note?
-    var selectedLatitude: Double?
-    var selectedLongitude: Double?
+
     
     private lazy var router: RouterProtocol = {
         let router = Router()
@@ -31,11 +33,14 @@ class NoteDetailsVC: UIViewController {
         return LocationManager.shared
     }()
     
+    private lazy var imagePikerManager: ImagePicker = {
+        let imagePicker = ImagePicker(presentationController: self, delegate: self)
+        return imagePicker
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        presenter = NoteDetailsPresenterImplementation(view: self, router: self.router, locationManager: locationManger, note: note)
+        presenter = NoteDetailsPresenterImplementation(view: self, router: self.router, locationManager: locationManger, imagePikerManager: imagePikerManager, note: note)
         presenter.viewDidLoad()
     }
     
@@ -48,13 +53,33 @@ class NoteDetailsVC: UIViewController {
     
     
     @IBAction func addPhotoPressed(_ sender: UIButton) {
+        presenter.addImagePressed()
     }
     
+    @IBAction func deletePressed(_ sender: UIBarButtonItem) {
+        presenter.deletePressed()
+    }
+    
+    @IBAction func savePressed(_ sender: UIBarButtonItem) {
+        presenter.addNotePressed(title: notesTitleTextField.text,
+                                 body: notesBodyTextView.text)
+    }
 }
+
+
+
+extension NoteDetailsVC: ImagePickerDelegate {
+    func didSelect(image: UIImage?) {
+        presenter.didSelectImage(imageData: image?.pngData())
+    }
+}
+
 
 extension NoteDetailsVC: NoteDetailsViewProtocols {
     
     func handleAddUI() {
+        deleteBarButton.image = nil
+        deleteBarButton.isEnabled = false
         addLocationButton.isHidden = false
         locationLabel.isHidden = true
         addPhotoButton.isHidden = false
@@ -88,8 +113,6 @@ extension NoteDetailsVC: NoteDetailsViewProtocols {
         if let noteLatitude = latitude , let noteLongitude = longitude {
             locationLabel.isHidden = false
             addLocationButton.isHidden = true
-            selectedLatitude = latitude
-            selectedLongitude = longitude
             presenter.getCoordinatesAddress(latitude: noteLatitude, longitue: noteLongitude)
         } else {
             locationLabel.isHidden = true

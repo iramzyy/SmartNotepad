@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Notes Title Here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oGE-pw-Z9l">
-                                <rect key="frame" x="32" y="76" width="311" height="30"/>
+                                <rect key="frame" x="32" y="60" width="311" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="BIV-hT-jTz"/>
                                 </constraints>
@@ -26,7 +27,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Olp-e5-OwS">
-                                <rect key="frame" x="32" y="122" width="311" height="200"/>
+                                <rect key="frame" x="30" y="106" width="315" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="g0y-NW-eKH"/>
@@ -114,19 +115,35 @@
                             <constraint firstItem="dsx-qy-uBt" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="32" id="5NN-s9-3gx"/>
                             <constraint firstItem="Olp-e5-OwS" firstAttribute="top" secondItem="oGE-pw-Z9l" secondAttribute="bottom" constant="16" id="K4c-nn-1XN"/>
                             <constraint firstItem="JgV-41-ccw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="32" id="MVj-xk-GFL"/>
-                            <constraint firstItem="Olp-e5-OwS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="32" id="cCv-yh-RdM"/>
+                            <constraint firstItem="Olp-e5-OwS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="cCv-yh-RdM"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dsx-qy-uBt" secondAttribute="trailing" constant="32" id="kSG-vc-EOs"/>
                             <constraint firstAttribute="bottom" secondItem="JgV-41-ccw" secondAttribute="bottom" constant="32" id="lhn-aZ-ByX"/>
                             <constraint firstItem="JgV-41-ccw" firstAttribute="top" secondItem="dsx-qy-uBt" secondAttribute="bottom" constant="16" id="tqa-GD-Wec"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="JgV-41-ccw" secondAttribute="trailing" constant="32" id="vJa-Bw-Ua2"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Olp-e5-OwS" secondAttribute="trailing" constant="32" id="wpm-yr-MkL"/>
-                            <constraint firstItem="oGE-pw-Z9l" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="32" id="zi7-bi-01V"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Olp-e5-OwS" secondAttribute="trailing" constant="30" id="wpm-yr-MkL"/>
+                            <constraint firstItem="oGE-pw-Z9l" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="zi7-bi-01V"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="fdp-lD-Asv"/>
+                    <navigationItem key="navigationItem" id="fdp-lD-Asv">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Save" id="EX7-rI-OGp">
+                                <color key="tintColor" name="Main-Blue-Color"/>
+                                <connections>
+                                    <action selector="savePressed:" destination="Y6W-OH-hqX" id="VFo-5a-84r"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="delete-icon" id="vma-In-Q2e">
+                                <color key="tintColor" name="Main-Blue-Color"/>
+                                <connections>
+                                    <action selector="deletePressed:" destination="Y6W-OH-hqX" id="6Ub-Y2-32v"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="addLocationButton" destination="lAx-1E-4UJ" id="Dxn-eO-o7B"/>
                         <outlet property="addPhotoButton" destination="2sk-7r-j6i" id="4j2-jD-weU"/>
+                        <outlet property="deleteBarButton" destination="vma-In-Q2e" id="1F7-p6-3yV"/>
                         <outlet property="locationLabel" destination="FRz-BS-swV" id="guH-1N-Mnc"/>
                         <outlet property="notesBodyTextView" destination="Olp-e5-OwS" id="eC0-cW-yDL"/>
                         <outlet property="notesTitleTextField" destination="oGE-pw-Z9l" id="NuT-JY-veB"/>
@@ -145,6 +162,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="YlT-0N-76m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="Main-Blue-Color"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -157,8 +175,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="delete-icon" width="24" height="24"/>
         <image name="image-icon" width="128" height="128"/>
         <image name="location-icon" width="128" height="128"/>
+        <namedColor name="Main-Blue-Color">
+            <color red="0.0" green="0.25098039215686274" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

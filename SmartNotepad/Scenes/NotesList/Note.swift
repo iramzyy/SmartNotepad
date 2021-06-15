@@ -13,8 +13,8 @@ class Note: Object {
     @objc dynamic var noteTitle: String = "Note title"
     @objc dynamic var noteBody: String = "Note body"
     @objc dynamic var noteImageData: Data?  = nil
-    var noteLatitude = RealmOptional<Double>()
-    var noteLongitude = RealmOptional<Double>()
+    dynamic var noteLatitude = RealmOptional<Double>()
+    dynamic var noteLongitude = RealmOptional<Double>()
     
 
     override static func primaryKey() -> String? {
