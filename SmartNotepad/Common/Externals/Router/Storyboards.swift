@@ -23,6 +23,7 @@ extension UIStoryboard {
 
 public enum Storyboard: String {
     case NotesList
+    case NoteDetails
 
     public func viewController<VC: UIViewController>(_ viewController: VC.Type) -> VC {
         guard

@@ -16,7 +16,7 @@ protocol NoteCellProtocols: AnyObject {
     func display(title : String)
     func display(body: String)
     func display(image: Data?)
-    func displayLocation(latitide: Double?, longitude: Double?)
+    func displayLocation(latitude: Double?, longitude: Double?)
 }
 
 protocol NotesPresenterProtocols {
@@ -62,17 +62,20 @@ class NotesPresenterImplementation: NotesPresenterProtocols {
         cell.display(title: note.noteTitle)
         cell.display(body: note.noteBody)
         cell.display(image: note.noteImageData)
-        cell.displayLocation(latitide: note.noteLatitude.value, longitude: note.noteLongitude.value)
+        cell.displayLocation(latitude: note.noteLatitude.value, longitude: note.noteLongitude.value)
         
     }
     
     func didSelect(row: Int) {
-        
+        let note = notes[row]
+        let noteDetailsVC = Storyboard.NoteDetails.viewController(NoteDetailsVC.self)
+        noteDetailsVC.note = note
+        router.push(view: noteDetailsVC)
     }
     
     func addButtonPressed() {
-        let notesListVC = Storyboard.NotesList.viewController(NotesListVC.self)
-        router.push(view: notesListVC)
+        let noteDetailsVC = Storyboard.NoteDetails.viewController(NoteDetailsVC.self)
+        router.push(view: noteDetailsVC)
     }
     
     

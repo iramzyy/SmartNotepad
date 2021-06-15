@@ -66,6 +66,10 @@ extension NotesListVC: UITableViewDataSource, UITableViewDelegate {
         presenter.configure(cell: cell, forRow: indexPath.row)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.didSelect(row: indexPath.row)
+    }
 }
 
 

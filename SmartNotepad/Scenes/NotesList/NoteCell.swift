@@ -32,8 +32,8 @@ class NoteCell: UITableViewCell, NoteCellProtocols {
         if image == nil { imageIcon.isHidden = true}
     }
     
-    func displayLocation(latitide: Double?, longitude: Double?) {
-        if latitide == nil && longitude == nil {locationIcon.isHidden = true}
+    func displayLocation(latitude: Double?, longitude: Double?) {
+        if latitude == nil && longitude == nil {locationIcon.isHidden = true}
     }
     
 }
