@@ -17,7 +17,7 @@ class NoteCell: UITableViewCell, NoteCellProtocols {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
     }
 
     func display(title: String) {

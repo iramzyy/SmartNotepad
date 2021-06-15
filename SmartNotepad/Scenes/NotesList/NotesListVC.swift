@@ -13,7 +13,6 @@ class NotesListVC: UIViewController {
     @IBOutlet weak var notesTableView: UITableView!
     @IBOutlet weak var addFloatingButton: UIButton!
     
-
     var presenter: NotesPresenterProtocols!
     
     private lazy var router: RouterProtocol = {
@@ -52,36 +51,5 @@ class NotesListVC: UIViewController {
     
     @IBAction func addPressed(_ sender: UIButton) {
         presenter.addButtonPressed()
-    }
-}
-
-
-extension NotesListVC: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.notesCount
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeue() as NoteCell
-        presenter.configure(cell: cell, forRow: indexPath.row)
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.didSelect(row: indexPath.row)
-    }
-}
-
-
-extension NotesListVC: NotesListViewProtocols {
-    func refreshListView() {
-        emptyView.isHidden = true
-        notesTableView.isHidden = false
-        notesTableView.reloadData()
-    }
-    
-    func handleEmptyNotesView() {
-        notesTableView.isHidden = true
-        emptyView.isHidden = false
     }
 }

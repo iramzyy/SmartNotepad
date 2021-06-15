@@ -20,6 +20,12 @@
 		2C8075F32677CA7200363ECA /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8075F22677CA7200363ECA /* RealmManager.swift */; };
 		2C8075F52677CAF000363ECA /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8075F42677CAF000363ECA /* Note.swift */; };
 		2C89AFDB2678D82700C90307 /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C89AFDA2678D82700C90307 /* ImagePickerManager.swift */; };
+		2C89AFDD2679118700C90307 /* NotesListVC+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C89AFDC2679118700C90307 /* NotesListVC+UITableView.swift */; };
+		2C89AFDF2679120E00C90307 /* NotesListVC+ViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C89AFDE2679120E00C90307 /* NotesListVC+ViewProtocols.swift */; };
+		2C89AFE12679135100C90307 /* NotesListPresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C89AFE02679135100C90307 /* NotesListPresenterProtocols.swift */; };
+		2C89AFE32679139200C90307 /* NoteDetailsVC+ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C89AFE22679139200C90307 /* NoteDetailsVC+ImagePicker.swift */; };
+		2C89AFE5267913DC00C90307 /* NoteDetailsVC+ViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C89AFE4267913DC00C90307 /* NoteDetailsVC+ViewProtocols.swift */; };
+		2C89AFE72679148400C90307 /* NoteDetailsPresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C89AFE62679148400C90307 /* NoteDetailsPresenterProtocols.swift */; };
 		2CD5EECC2676C3A50082416B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD5EECB2676C3A50082416B /* AppDelegate.swift */; };
 		2CD5EECE2676C3A50082416B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD5EECD2676C3A50082416B /* SceneDelegate.swift */; };
 		2CD5EED52676C3A70082416B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CD5EED42676C3A70082416B /* Assets.xcassets */; };
@@ -44,6 +50,12 @@
 		2C8075F22677CA7200363ECA /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		2C8075F42677CAF000363ECA /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		2C89AFDA2678D82700C90307 /* ImagePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
+		2C89AFDC2679118700C90307 /* NotesListVC+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotesListVC+UITableView.swift"; sourceTree = "<group>"; };
+		2C89AFDE2679120E00C90307 /* NotesListVC+ViewProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotesListVC+ViewProtocols.swift"; sourceTree = "<group>"; };
+		2C89AFE02679135100C90307 /* NotesListPresenterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListPresenterProtocols.swift; sourceTree = "<group>"; };
+		2C89AFE22679139200C90307 /* NoteDetailsVC+ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteDetailsVC+ImagePicker.swift"; sourceTree = "<group>"; };
+		2C89AFE4267913DC00C90307 /* NoteDetailsVC+ViewProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteDetailsVC+ViewProtocols.swift"; sourceTree = "<group>"; };
+		2C89AFE62679148400C90307 /* NoteDetailsPresenterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailsPresenterProtocols.swift; sourceTree = "<group>"; };
 		2CD5EEC82676C3A50082416B /* SmartNotepad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartNotepad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CD5EECB2676C3A50082416B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CD5EECD2676C3A50082416B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,7 +87,10 @@
 			children = (
 				2C7855E2267829C0004E04DB /* NoteDetails.storyboard */,
 				2C7855E4267833FD004E04DB /* NoteDetailsVC.swift */,
+				2C89AFE22679139200C90307 /* NoteDetailsVC+ImagePicker.swift */,
+				2C89AFE4267913DC00C90307 /* NoteDetailsVC+ViewProtocols.swift */,
 				2C7855E6267837B5004E04DB /* NoteDetailsPresenter.swift */,
+				2C89AFE62679148400C90307 /* NoteDetailsPresenterProtocols.swift */,
 			);
 			path = NoteDetails;
 			sourceTree = "<group>";
@@ -93,10 +108,13 @@
 			children = (
 				2C8075E72677AADD00363ECA /* NotesList.storyboard */,
 				2C8075E92677AAF200363ECA /* NotesListVC.swift */,
+				2C89AFDC2679118700C90307 /* NotesListVC+UITableView.swift */,
+				2C89AFDE2679120E00C90307 /* NotesListVC+ViewProtocols.swift */,
 				2C8075EB2677AB1B00363ECA /* NoteCell.swift */,
 				2C8075EC2677AB1B00363ECA /* NoteCell.xib */,
-				2C8075F42677CAF000363ECA /* Note.swift */,
 				2C7855DE26780A3F004E04DB /* NotesListPresenter.swift */,
+				2C89AFE02679135100C90307 /* NotesListPresenterProtocols.swift */,
+				2C8075F42677CAF000363ECA /* Note.swift */,
 			);
 			path = NotesList;
 			sourceTree = "<group>";
@@ -355,8 +373,10 @@
 			files = (
 				2CD5EEEA2676E3880082416B /* UIView.swift in Sources */,
 				2CD5EEEC2676E6C90082416B /* Storyboards.swift in Sources */,
+				2C89AFDD2679118700C90307 /* NotesListVC+UITableView.swift in Sources */,
 				2CD5EECC2676C3A50082416B /* AppDelegate.swift in Sources */,
 				2CD5EEE72676E1710082416B /* Router.swift in Sources */,
+				2C89AFE72679148400C90307 /* NoteDetailsPresenterProtocols.swift in Sources */,
 				2C8075EA2677AAF200363ECA /* NotesListVC.swift in Sources */,
 				2C8075F52677CAF000363ECA /* Note.swift in Sources */,
 				2C8075F32677CA7200363ECA /* RealmManager.swift in Sources */,
@@ -364,7 +384,11 @@
 				2C8075ED2677AB1B00363ECA /* NoteCell.swift in Sources */,
 				2CD5EECE2676C3A50082416B /* SceneDelegate.swift in Sources */,
 				2C7855EA26784A84004E04DB /* LocationManager.swift in Sources */,
+				2C89AFE5267913DC00C90307 /* NoteDetailsVC+ViewProtocols.swift in Sources */,
+				2C89AFE32679139200C90307 /* NoteDetailsVC+ImagePicker.swift in Sources */,
+				2C89AFE12679135100C90307 /* NotesListPresenterProtocols.swift in Sources */,
 				2C89AFDB2678D82700C90307 /* ImagePickerManager.swift in Sources */,
+				2C89AFDF2679120E00C90307 /* NotesListVC+ViewProtocols.swift in Sources */,
 				2C7855DF26780A3F004E04DB /* NotesListPresenter.swift in Sources */,
 				2C7855E7267837B5004E04DB /* NoteDetailsPresenter.swift in Sources */,
 				2C7855E5267833FD004E04DB /* NoteDetailsVC.swift in Sources */,

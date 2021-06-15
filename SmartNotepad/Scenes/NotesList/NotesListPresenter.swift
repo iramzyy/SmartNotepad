@@ -7,32 +7,11 @@
 
 import Foundation
 
-protocol NotesListViewProtocols: AnyObject {
-    func refreshListView()
-    func handleEmptyNotesView()
-}
-
-protocol NoteCellProtocols: AnyObject {
-    func display(title : String)
-    func display(body: String)
-    func display(image: Data?)
-    func displayLocation(latitude: Double?, longitude: Double?)
-}
-
-protocol NotesPresenterProtocols {
-    var notesCount: Int { get }
-    func viewWillAppear()
-    func configure(cell: NoteCell, forRow row: Int)
-    func didSelect(row: Int)
-    func addButtonPressed()
-}
-
 class NotesPresenterImplementation: NotesPresenterProtocols {
-    fileprivate weak var view: NotesListViewProtocols?
-    fileprivate let realmManager: RealmManager = RealmManager()
+    private weak var view: NotesListViewProtocols?
+    private let realmManager: RealmManager = RealmManager()
     private let router: RouterProtocol
-    
-    var notes = [Note]()
+    private var notes = [Note]()
     
     var notesCount: Int {
         return  notes.count
@@ -77,6 +56,4 @@ class NotesPresenterImplementation: NotesPresenterProtocols {
         let noteDetailsVC = Storyboard.NoteDetails.viewController(NoteDetailsVC.self)
         router.push(view: noteDetailsVC)
     }
-    
-    
 }

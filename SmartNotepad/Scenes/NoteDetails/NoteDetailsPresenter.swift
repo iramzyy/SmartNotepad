@@ -8,29 +8,9 @@
 import Foundation
 import CoreLocation
 
-protocol NoteDetailsViewProtocols: AnyObject {
-    func handleAddUI()
-    func display(title : String)
-    func display(body: String)
-    func display(image: Data?)
-    func displayLocation(latitude: Double?, longitude: Double?)
-    func display(locationAddress: String)
-    func openSettings()
-}
-
-protocol NoteDetailsPresenterProtocols {
-    func viewDidLoad()
-    func getCoordinatesAddress(latitude: Double, longitue: Double)
-    func addLocationPressed()
-    func addImagePressed()
-    func didSelectImage(imageData: Data?)
-    func addNotePressed(title: String?, body: String?)
-    func deletePressed()
-}
-
 class NoteDetailsPresenterImplementation: NoteDetailsPresenterProtocols {
-    fileprivate weak var view: NoteDetailsViewProtocols?
-    fileprivate let realmManager: RealmManager = RealmManager()
+    private weak var view: NoteDetailsViewProtocols?
+    private let realmManager: RealmManager = RealmManager()
     private let router: RouterProtocol
     private let imagePikerManager: ImagePicker
     private let locationManager: LocationManager
@@ -132,7 +112,7 @@ class NoteDetailsPresenterImplementation: NoteDetailsPresenterProtocols {
     
     func deletePressed() {
         if let note = note {
-            realmManager.delete(note)
+        realmManager.delete(note)
             router.pop()
         }
     }
