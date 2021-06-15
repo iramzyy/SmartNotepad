@@ -9,7 +9,7 @@ import UIKit.UIViewController
 
 typealias AlertAction = (title: String, style: UIAlertAction.Style, action: () -> Void)
 
-protocol RouterProtocol: class {
+protocol RouterProtocol: AnyObject {
     var presentedView: UIViewController! { set get }
     func present(view: UIViewController)
     func startActivityIndicator()

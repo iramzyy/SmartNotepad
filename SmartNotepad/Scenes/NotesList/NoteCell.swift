@@ -7,9 +7,10 @@
 
 import UIKit
 
-class NoteCell: UITableViewCell {
-    @IBOutlet weak var noteBodyLabel: UILabel!
+class NoteCell: UITableViewCell, NoteCellProtocols {
+    
     @IBOutlet weak var noteTitleLabel: UILabel!
+    @IBOutlet weak var noteBodyLabel: UILabel!
     @IBOutlet weak var nearestLabel: UILabel!
     @IBOutlet weak var locationIcon: UIImageView!
     @IBOutlet weak var imageIcon: UIImageView!
@@ -19,9 +20,20 @@ class NoteCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
+    func display(title: String) {
+        noteTitleLabel.text = title
+    }
+    
+    func display(body: String) {
+        noteBodyLabel.text = body
+    }
+    
+    func display(image: Data?) {
+        if image == nil { imageIcon.isHidden = true}
+    }
+    
+    func displayLocation(latitide: Double?, longitude: Double?) {
+        if latitide == nil && longitude == nil {locationIcon.isHidden = true}
     }
     
 }

@@ -5,21 +5,37 @@
 //  Created by Ramzy on 14/06/2021.
 //
 
+import UIKit.UIViewController
 import UIKit.UIStoryboard
 
-
-enum Storyboards: String {
-    case notesList = ""
+extension UIViewController {
+    public static var storyboardIdentifier: String {
+        return self.description().components(separatedBy: ".").dropFirst().joined(separator: ".")
+    }
 }
 
-protocol Storyboarded {
-    static func instantiate(_ storyboardId: Storyboards) -> Self
+extension UIStoryboard {
+    class func instantiateInitialViewController(_ id: Storyboard) -> UIViewController {
+        let story = UIStoryboard(name: id.rawValue, bundle: nil)
+        return story.instantiateInitialViewController()!
+    }
 }
 
-extension Storyboarded where Self:UIViewController {
-    static func instantiate(_ storyboardId: Storyboards) -> Self {
-        let id = String(describing: self)
-        let storyboard = UIStoryboard(name: storyboardId.rawValue ,bundle: Bundle.main)
-        return storyboard.instantiateViewController(withIdentifier: id) as! Self
+public enum Storyboard: String {
+    case NotesList
+
+    public func viewController<VC: UIViewController>(_ viewController: VC.Type) -> VC {
+        guard
+            let vc = UIStoryboard(name: self.rawValue, bundle: nil)
+                .instantiateViewController(withIdentifier: VC.storyboardIdentifier) as? VC
+            else { fatalError("Couldn't instantiate \(VC.storyboardIdentifier) from \(self.rawValue)") }
+        
+        return vc
+    }
+    
+    public func initialViewController() -> UIViewController {
+        let story = UIStoryboard(name: self.rawValue, bundle: nil)
+        guard let vc = story.instantiateInitialViewController() else { fatalError("\(self.rawValue) has no InitialViewController") }
+        return vc
     }
 }

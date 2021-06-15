@@ -13,11 +13,38 @@
         <!--Notes-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="NotesListVC" customModule="SmartNotepad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NotesListVC" id="Y6W-OH-hqX" customClass="NotesListVC" customModule="SmartNotepad" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DVE-ae-CC9">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-image" translatesAutoresizingMaskIntoConstraints="NO" id="lzh-iu-kRC">
+                                        <rect key="frame" x="32" y="446" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="BQV-6M-d5Q"/>
+                                            <constraint firstAttribute="width" constant="200" id="zx3-tB-LHV"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start adding your first note " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHn-zD-hc8">
+                                        <rect key="frame" x="32" y="373.5" width="350" height="27.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                        <color key="textColor" name="Main-Blue-Color"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="rHn-zD-hc8" firstAttribute="centerY" secondItem="DVE-ae-CC9" secondAttribute="centerY" id="1hj-gB-1VO"/>
+                                    <constraint firstAttribute="trailing" secondItem="rHn-zD-hc8" secondAttribute="trailing" constant="32" id="3Ow-Lc-pCW"/>
+                                    <constraint firstItem="rHn-zD-hc8" firstAttribute="leading" secondItem="DVE-ae-CC9" secondAttribute="leading" constant="32" id="e6L-So-RgH"/>
+                                    <constraint firstItem="lzh-iu-kRC" firstAttribute="leading" secondItem="DVE-ae-CC9" secondAttribute="leading" constant="32" id="hMf-jy-f9q"/>
+                                    <constraint firstItem="rHn-zD-hc8" firstAttribute="centerX" secondItem="DVE-ae-CC9" secondAttribute="centerX" id="hW6-XM-gfP"/>
+                                    <constraint firstItem="lzh-iu-kRC" firstAttribute="top" secondItem="rHn-zD-hc8" secondAttribute="bottom" constant="45" id="lMj-4m-ejb"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mcx-w4-vQ4">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -33,22 +60,30 @@
                                 <state key="normal" title="+">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="addPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0Xe-50-8Lq"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="DVE-ae-CC9" secondAttribute="trailing" id="87q-if-ss3"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="VSs-Aj-ovO" secondAttribute="bottom" constant="32" id="HYh-HN-Jt6"/>
+                            <constraint firstItem="DVE-ae-CC9" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="TXq-ik-CAw"/>
+                            <constraint firstItem="DVE-ae-CC9" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="bmY-XR-pVy"/>
                             <constraint firstItem="Mcx-w4-vQ4" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="f2S-IE-eYh"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="VSs-Aj-ovO" secondAttribute="trailing" constant="20" id="iWy-ub-36I"/>
                             <constraint firstItem="Mcx-w4-vQ4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="kHg-95-mh5"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Mcx-w4-vQ4" secondAttribute="bottom" id="kSI-S9-s4f"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="DVE-ae-CC9" secondAttribute="bottom" id="krl-Bb-qcu"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Mcx-w4-vQ4" secondAttribute="trailing" id="mRt-qj-DQJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Notes" id="3Us-1U-NJO"/>
                     <connections>
                         <outlet property="addFloatingButton" destination="VSs-Aj-ovO" id="n2t-JP-bRg"/>
+                        <outlet property="emptyView" destination="DVE-ae-CC9" id="1Ra-52-mFw"/>
                         <outlet property="notesTableView" destination="Mcx-w4-vQ4" id="Y4K-AS-bza"/>
                     </connections>
                 </viewController>
@@ -76,6 +111,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow-image" width="512" height="512"/>
         <namedColor name="Main-Blue-Color">
             <color red="0.0" green="0.25098039215686274" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

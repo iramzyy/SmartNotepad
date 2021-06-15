@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 class Note: Object {
-    dynamic var noteID = UUID().uuidString
+    @objc dynamic var noteID = UUID().uuidString
     @objc dynamic var noteTitle: String = "Note title"
     @objc dynamic var noteBody: String = "Note body"
     @objc dynamic var noteImageData: Data?  = nil
