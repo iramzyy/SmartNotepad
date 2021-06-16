@@ -88,9 +88,8 @@ class NoteDetailsPresenterImplementation: NoteDetailsPresenterProtocols {
     }
     
     func addNotePressed(title: String?, body: String?) {
-        guard let noteTitle = title, !noteTitle.isEmpty else { return }
-        
-        guard let noteBody = body, !noteBody.isEmpty else { return }
+        guard let noteTitle = title!.isEmpty ? "New Note" : title else {return}
+        guard let noteBody = body!.isEmpty ? "No Body" : body else { return }
         if note != nil {
             realmManager.update {
                 self.note?.noteTitle = noteTitle
